@@ -1,0 +1,6 @@
+<section class="pagination">
+    <% [...Array(amountPage)].forEach((_, i) => { %>
+        <% i++ %> 
+        <a class="<%= activePage === i ? "active" : "" %>" href="?page=<%= i %>"><%= i %></a>
+    <% }) %>
+</section>
