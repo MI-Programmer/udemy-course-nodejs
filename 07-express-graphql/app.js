@@ -7,6 +7,9 @@ import { createHandler } from "graphql-http/lib/use/express";
 import { altairExpress } from "altair-express-middleware";
 import multer from "multer";
 import { v4 as uuid } from "uuid";
+import helmet from "helmet";
+import compression from "compression";
+import morgan from "morgan";
 import dotenv from "dotenv";
 
 import graphqlSchema from "./graphql/schema.js";
@@ -36,6 +39,9 @@ dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(multer({ storage, fileFilter }).single("image"));
+app.use(helmet());
+app.use(compression());
+app.use(morgan("common"));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");

@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon ./app.js"
   },
   "keywords": [],
@@ -14,12 +14,17 @@
   "dependencies": {
     "altair-express-middleware": "^7.3.5",
     "bcrypt": "^5.1.1",
+    "chai": "^5.1.1",
+    "compression": "^1.7.4",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "graphql": "^16.9.0",
     "graphql-http": "^1.22.1",
+    "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
+    "mocha": "^10.7.3",
     "mongoose": "^8.6.1",
+    "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "uuid": "^10.0.0",
     "zod": "^3.23.8"

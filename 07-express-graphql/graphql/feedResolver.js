@@ -66,10 +66,8 @@ const feedResolver = {
     if (!context.isAuth) {
       const error = new Error("Not authenticated.");
       error.status = 401;
-      // console.log(error);
       throw error;
     }
-
     const {
       postInput: { title, image, content },
     } = args;
@@ -79,10 +77,8 @@ const feedResolver = {
       const error = new Error("Validation failed");
       error.data = errorsZod.errors;
       error.status = 422;
-      // console.log(error);
       throw error;
     }
-
     try {
       const user = await User.findById(context.userId);
       if (!user) {
@@ -96,7 +92,6 @@ const feedResolver = {
         content,
         creator: user,
       });
-
       user.posts.push(post._id);
       await user.save();
       return {
